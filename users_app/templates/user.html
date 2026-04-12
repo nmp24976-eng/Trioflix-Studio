@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <link rel="stylesheet" href="{% static 'design.css' %}">
+</head>
+<body>
+    <h1>User Details</h1>
+    <!--serch bar-->
+    <input type="text" id="searchinput" placeholder="search for users...">
+    
+    <!-- Show user table -->
+     <table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Subscription Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- here you see user data -->
+  {% if user.is_authenticated %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    {% if user.is_superuser %}
+                        Premium (Admin)
+                    {% else %}
+                        Standard User
+                    {% endif %}
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3">Please login to see details.</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+    <script src="{% static 'user.js' %}"></script>
+</body>
+</html>

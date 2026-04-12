@@ -1,0 +1,86 @@
+// static/js/translations.js
+const wordMap = {
+    // --- FAQ Specific Content (New) ---
+    "What is Trioflix Studio ?": "Trioflix Studio क्या है?",
+    "What is Trioflix Studio?": "Trioflix Studio क्या है?",
+    "Trioflix Studio is a subscription-based streaming service that allows our members to watch TV shows and movies on an internet-connected device.": "Trioflix Studio एक सदस्यता-आधारित स्ट्रीमिंग सेवा है जो हमारे सदस्यों को इंटरनेट से जुड़े डिवाइस पर टीवी शो और फिल्में देखने की अनुमति देती है।",
+    "Depending on your plan, you can also download TV shows and movies to your iOS, Android, or Windows 10 device and watch without an internet connection.": "आपके प्लान के आधार पर, आप अपने iOS, Android, या Windows 10 डिवाइस पर टीवी शो और फिल्में डाउनलोड भी कर सकते हैं और बिना इंटरनेट कनेक्शन के देख सकते हैं।",
+    "If you're already a member and would like to learn more about using Trioflix Studio, visit Getting started with Trioflix Studio.": "यदि आप पहले से ही सदस्य हैं और Trioflix Studio का उपयोग करने के बारे में अधिक जानना चाहते हैं, तो Trioflix Studio के साथ शुरुआत करना देखें।",
+
+    // --- Index Page & Navbar ---
+    "Sign In": "साइन इन",
+    "Unlimited movies, TV shows and more": "अनलिमिटेड फिल्में, टीवी शो और बहुत कुछ",
+    "Watch anywhere. Cancel anytime.": "कहीं भी देखें। कभी भी कैंसिल करें।",
+    "Ready to watch? Enter your email to create or restart your membership.": "देखने के लिए तैयार हैं? अपनी मेंबरशिप शुरू करने के लिए ईमेल डालें।",
+    "Email address": "ईमेल पता",
+    "Get Started": "शुरू करें",
+    "Enjoy on your TV": "अपने टीवी पर आनंद लें",
+    "Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.": "स्मार्ट टीवी, प्लेस्टेशन, एक्सबॉक्स और बहुत कुछ पर देखें।",
+    "Download your shows to watch offline": "ऑफलाइन देखने के लिए डाउनलोड करें",
+    "Save your favourites easily and always have something to watch.": "अपने पसंदीदा शो सेव करें और हमेशा कुछ न कुछ देखने के लिए रखें।",
+    "Watch Everywhere": "हर जगह देखें",
+    "Create profiles for kids": "बच्चों के लिए प्रोफाइल बनाएं",
+    "frequently asked questions": "अक्सर पूछे जाने वाले प्रश्न",
+    "Frequently Asked Questions": "अक्सर पूछे जाने वाले प्रश्न",
+    "Send children on adventures with their favourite characters in a space made just for them—free with your membership.": "बच्चों को उनके पसंदीदा किरदारों के साथ रोमांच पर भेजें, उनके लिए बनाई गई खास जगह में—आपकी मेंबरशिप के साथ मुफ्त।",
+    "Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.": "अपने फोन, टैबलेट, लैपटॉप और टीवी पर अनलिमिटेड फिल्में और टीवी शो स्ट्रीम करें।",
+
+    // --- Help Center Details ---
+    "How can we help?": "हम आपकी क्या मदद कर सकते हैं?",
+    "Help Center": "सहायता केंद्र",
+    "Join Trioflix Studio": "Trioflix Studio से जुड़ें",
+    "Join Trioflix Studio ": "Trioflix Studio से जुड़ें",
+    "Type a question, topic or issue": "कोई प्रश्न या समस्या लिखें",
+    "Popular Topics:": "लोकप्रिय विषय:",
+    "Plans and Pricing": "प्लान और कीमतें",
+    "Explore Topics": "विषय देखें",
+    "Account and Billing": "खाता और बिलिंग",
+    "Fix a Problem": "समस्या ठीक करें",
+    "Watching and Playing": "देखना और चलाना",
+    "Getting Started": "शुरू करना",
+    "Account Settings": "खाता सेटिंग्स",
+    "Need more help?": "क्या और सहायता चाहिए?",
+    "Contact Us": "हमसे संपर्क करें",
+    "Quick Links": "क्विक लिंक्स",
+    "TV Shows & Movies": "टीवी शो और फिल्में",
+    "Supported Devices": "सपोर्टेड डिवाइस",
+    "Related Articles": "संबंधित लेख",
+    "Was this article helpful?": "क्या यह लेख सहायक था?",
+    "Yes": "हाँ",
+    "No": "नहीं",
+
+    // --- Media Page & User Detail ---
+    "Home": "होम",
+    "Media Center": "मीडिया सेंटर",
+    "Kids": "बच्चे",
+    "Account": "खाता",
+    "Play Now": "अभी देखें",
+    "Category": "श्रेणी",
+    "Rating": "रेटिंग",
+
+    // --- Footer & Common ---
+    "Terms of Use": "उपयोग की शर्तें",
+    "Privacy": "गोपनीयता",
+    "Cookie Preferences": "कुकी प्राथमिकताएं",
+    "Corporate Information": "कॉर्पोरेट जानकारी",
+    "Trioflix Studio India": "Trioflix Studio भारत",
+    "Questions? Call:": "सवाल? कॉल करें:",
+    "Only on Trioflix Studio": "सिर्फ Trioflix Studio पर",
+
+    //media ka ha ya 
+
+    "Media Center": "मीडिया सेंटर",
+    "Discover stories and experiences to share with India.": "भारत के साथ साझा करने के लिए कहानियों और अनुभवों की खोज करें।",
+    "Films": "फिल्में",
+    "Series": "सीरीज",
+    "Documentary": "डॉक्यूमेंट्री",
+    "kids": "बच्चे",
+    "Reality": "रियलिटी शो",
+    "Search for Trioflix titles...": "Trioflix फ़िल्में खोजें...",
+    "Trending Films": "ट्रेंडिंग फिल्में",
+    "About Trioflix": "Trioflix के बारे में",
+    "Newsroom": "न्यूज़रूम",
+    "Trioflix Studio India": "Trioflix Studio भारत",
+    "Terms of Use": "उपयोग की शर्तें",
+    "Privacy": "गोपनीयता"
+};

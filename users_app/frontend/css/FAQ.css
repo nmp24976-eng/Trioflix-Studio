@@ -1,0 +1,136 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit' !important;
+    scroll-behavior: smooth !important;
+    
+}
+*::selection{
+    background-color: #4C4948 !important;
+    color: white;
+    
+}
+
+/* navbar starts */
+
+.anchorHov:hover{
+    text-decoration: underline !important;
+    color: #000000ab !important;
+
+}
+.anchorBtn:hover{
+    border-color: black !important;
+    background-color: rgb(128 128 128 / 20%) !important;
+}
+
+#signIn:hover{
+    background-color: #c11119 !important;
+}
+
+/* navbar ends */
+
+
+/* searchbar section starts */
+
+.searchControlWrapper{
+    padding: 2px;
+    border-radius: 4px;
+    background: linear-gradient(to right, #e50914 -0.08%, #c94ff5 81.14%, #5b79f1 99.92%);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.inputControl{
+    padding: 9px 16px 9px 50px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+}
+
+.inputControl:focus{
+    border-color: transparent;
+    outline: transparent;
+}
+
+/* searchbar section ends */
+
+/* main content starts */
+
+.leftPane{
+    width: 68%;
+}
+
+.thinAnchor{
+    text-decoration: none;
+    color: #e50914;
+}
+.thinAnchor:hover{
+    text-decoration: underline;
+}
+
+.contactBtn:hover{
+    background-color: rgb(0 0 0 / 70%) !important;
+}
+
+.rightPane{
+    width: calc(100% - 68%);
+}
+
+.articleTopics{
+    border-top: 6px solid #e50914;
+}
+/* main content ends */
+
+
+/* footer starts */
+
+/* footer starts */
+
+.footer {
+    background-color: #000000; /* Isko dark rakhein Netflix ki tarah */
+    border-top: 1px solid #333;
+    padding-top: 50px;
+}
+
+/* Is dabba (Parent) ki styling */
+.select {
+    max-width: 10rem !important; 
+    border: 1px solid #555 !important; /* Subtle grey border */
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.8) !important; /* Black background */
+    padding: 2px 10px !important;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Dropdown (Asli Select) ki styling */
+#lang-switcher {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    color: #ffffff !important; /* Text color hamesha white rakhein */
+    font-size: 0.95rem;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    outline: none !important;
+    padding: 8px 5px;
+}
+
+/* Jab mouse box par jaye (Hover) */
+.select:hover {
+    border-color: #ffffff !important; /* Border chamkegi */
+    background-color: #1a1a1a !important; 
+}
+
+/* Arrow icon ko sahi karne ke liye */
+#downArrow path {
+    fill: #ffffff;
+}
+
+/* Sabse important: Dropdown khulne par options black background mein dikhein */
+#lang-switcher option {
+    background-color: #141414 !important;
+    color: white !important;
+    padding: 10px;
+}
+
+/* footer ends */

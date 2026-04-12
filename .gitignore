@@ -1,0 +1,29 @@
+# Secrets (Most Important)
+.env
+
+# Python cached files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Database (If you use SQLite)
+db.sqlite3
+
+# Static and Media
+staticfiles/
+media/
+
+# IDE specific files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+movies/*.mkv
+users_app/frontend/movieshow/
