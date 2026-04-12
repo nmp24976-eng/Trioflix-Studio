@@ -18,13 +18,20 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings             # <-- 1. Ye line add karein
 from django.conf.urls.static import static   # <-- 2. Ye line add karein
+from django.shortcuts import redirect  # <-- Yahan joda hai maine redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users_app.urls')),
+    # Ye niche wali line aapki website kholte hi "users" par bhej degi
+    path('', lambda request: redirect('users/', permanent=True)),
 ]
 
 # --- Sabse zaruri hissa video seek karne ke liye ---
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    
+else:
+    # Live server (Render) par bhi static files dikhne ke liye ye zaroori hai
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -18,10 +18,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_ws5f9h!#%a185^k_ojt6@&r2fddfuiqxd8z%skd8r(leol4v-'
 
 # DEPLOYMENT TIP: Live server par ise False kar dein
-DEBUG = True 
+DEBUG = False
 
 # Ismein '*' ka matlab hai ki koi bhi host ise access kar sakta hai (Deployment ke liye zaroori)
-ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['trioflix-studio.onrender.com', '127.0.0.1', 'localhost']
 
 
 # --- 2. Application Definition ---
