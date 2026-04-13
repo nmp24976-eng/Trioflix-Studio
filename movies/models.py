@@ -35,6 +35,8 @@ class Movie(models.Model):
     # --- VIDEO SECTION ---
     youtube_url = models.URLField(max_length=1000, null=True, blank=True, help_text="YouTube Watch link dalo")
     video_file = CloudinaryField('video', resource_type='video', folder='movies', blank=True, null=True)
+    # Naya Field Yahan Add Karein:
+    video_url = models.URLField(max_length=1000, null=True, blank=True, help_text="Cloudinary ka direct video link yahan dalo")
     
     # Categories: Ek movie ki kai categories ho sakti hain (e.g. Action + Trending)
     categories = models.ManyToManyField(Category, related_name='movies')
