@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_ws5f9h!#%a185^k_ojt6@&r2fddfuiqxd8z%skd8r(leol4v-'
 
 # DEPLOYMENT TIP: Live server par ise False kar dein
-DEBUG = False
+DEBUG = True
 
 # Ismein '*' ka matlab hai ki koi bhi host ise access kar sakta hai (Deployment ke liye zaroori)
 ALLOWED_HOSTS = ['trioflix-studio.onrender.com', '127.0.0.1', 'localhost']
@@ -103,8 +103,9 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # NAYA: Live server ke liye files jama karne ki jagah
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'), 
+    os.path.join(BASE_DIR, 'users_app', 'frontend'),
 ]
+
 # NAYA: Whitenoise storage taaki CSS/JS compress hokar chale
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
