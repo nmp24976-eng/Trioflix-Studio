@@ -1,55 +1,52 @@
 """
-Django settings for Trioflix Studio (Movie Clone).
-Developed & Maintained by: Mohit Singh Negi
+Trioflix Studio - Final Production Settings
+Cleaned & Optimized by Mohit Singh Negi
 """
 
 import os
 import mimetypes
 from pathlib import Path
 
-# --- BASE DIRECTORY SETUP ---
-# Ye line batati hai ki project ka main folder kahan hai
+# --- 1. BASE DIRECTORY SETUP ---
+# Project ki main root directory ka path nikalne ke liye
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Browser mein video files (MP4) ko sahi format mein play karne ke liye settings
+# Browser mein video files (MP4, M4V) ko sahi format mein play karne ke liye MIME types
 mimetypes.add_type("video/mp4", ".m4v", True)
 mimetypes.add_type("video/x-mp4", ".mp4", True)
 
 
-# --- 1. SECURITY & DEBUG ---
+# --- 2. SECURITY & DEBUG ---
+# SECRET_KEY ko safe rakhein (Production mein ise environment variable se lena chahiye)
 SECRET_KEY = 'django-insecure-_ws5f9h!#%a185^k_ojt6@&r2fddfuiqxd8z%skd8r(leol4v-'
 
-# PRODUCTION TIP: Render par deploy karte waqt ise False rakhein taaki koi error leak na ho
+# LIVE SERVER PAR FALSE HONA CHAHIYE: Taaki users ko errors na dikhein
 DEBUG = False
 
-# Render ki URL aur local URLs ko allow karna zaroori hai
-# Ise bilkul aisa kar dein
+# Render domain, subdomains aur local testing ke liye hosts ko allow karna
 ALLOWED_HOSTS = ['trioflix-studio.onrender.com', '.onrender.com', 'localhost', '127.0.0.1']
-# --- CSRF Fix (Iske bina Login nahi hoga) ---
-# Ye line Django ko batati hai ki Render se aane wala login request safe hai
+
+# CSRF SETTINGS: Render par Secure Login ke liye ye line sabse zaroori hai
 CSRF_TRUSTED_ORIGINS = ['https://trioflix-studio.onrender.com']
 
 
-
-# --- 2. INSTALLED APPLICATIONS ---
+# --- 3. APPLICATION DEFINITION ---
 INSTALLED_APPS = [
-    'cloudinary_storage',         # Cloudinary storage handling (Sabse upar hona chahiye)
+    'cloudinary_storage',         # Cloudinary storage handling (Top par hona zaroori hai)
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles', # Static files (CSS/JS) handle karne ke liye
+    'django.contrib.staticfiles', # CSS/JS handle karne ke liye
     'cloudinary',                 # Cloudinary main library
-    'movies',                     # Aapka Movies app
-    'users_app',                  # Aapka User/Login app
+    'movies',                     # Movies App
+    'users_app',                  # Users/Auth App
 ]
 
-
-# --- 3. MIDDLEWARE CONFIGURATION ---
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # IMPORTANT: Render par CSS/JS serve karne ke liye
+    'whitenoise.middleware.WhiteNoiseMiddleware', # Render par Static files (CSS) serve karne ke liye No. 1 Middleware
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -60,12 +57,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'movie_clone.urls'
 
-
-# --- 4. TEMPLATE SETTINGS ---
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'], # HTML files dhoondne ka rasta
+        'DIRS': [BASE_DIR / 'templates'], # Global templates folder ka rasta
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,8 +75,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'movie_clone.wsgi.application'
 
 
-# --- 5. DATABASE (SQLite) ---
-# Mohit, abhi hum SQLite use kar rahe hain jo local testing ke liye best hai
+# --- 4. DATABASE (SQLite) ---
+# Production ke liye SQLite use ho raha hai (Simple setup)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -90,27 +85,26 @@ DATABASES = {
 }
 
 
-# --- 6. STATIC & MEDIA FILES (Whitenoise & Cloudinary) ---
-# Static files (CSS, Images, JS)
+# --- 5. STATIC & MEDIA FILES (Deployment Ready) ---
+# Static files (CSS, JS, Images)
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Frontend folder ka path dhyan se check karein (Agar folder ka naam 'static' hai toh badal dein)
+# Frontend folder ka path check karein (Agar folder ka naam 'static' hai toh wahi likhein)
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'frontend'), 
 ]
 
-# Whitenoise settings: CSS ko compress karke fast load karta hai
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Whitenoise Storage: Static files ko bina crash ke fast serve karta hai
+STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
 WHITENOISE_USE_FINDERS = True
 
-# Media files (User jo video/photo upload karega)
+# Media files: User jo poster ya video upload karega
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-# --- 7. CLOUDINARY CONFIGURATION ---
-# Ye settings aapke images aur videos ko Cloudinary par store karengi
+# --- 6. CLOUDINARY FINAL CONFIGURATION ---
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'dxphyzpeg',
     'API_KEY': '829991893926926',
@@ -128,14 +122,15 @@ cloudinary.config(
     secure = True
 )
 
-# Media files ko default Cloudinary par bhejta hai
+# Media files ko default Cloudinary par save karne ke liye
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
-# --- 8. LOGIN & AUTH SETTINGS ---
-# Login hone ke baad user kahan jayega?
+# --- 7. AUTHENTICATION & REDIRECTS ---
+# Login aur Logout ke baad user kahan jayega
 LOGIN_URL = 'users_app:login'
 LOGIN_REDIRECT_URL = 'users_app:media'
 LOGOUT_REDIRECT_URL = 'users_app:login'
 
+# Default Primary Key type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
