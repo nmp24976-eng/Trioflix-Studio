@@ -102,6 +102,7 @@ STATICFILES_DIRS = [
 
 # NAYA: Whitenoise storage taaki CSS/JS compress hokar chale
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+WHITENOISE_USE_FINDERS = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
