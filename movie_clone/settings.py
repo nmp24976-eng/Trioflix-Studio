@@ -96,10 +96,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # NAYA: Live server ke liye files jama karne ki jagah
 
+# Is line ko dhyaan se dekhein, shayad 'movie_clone' folder ki wajah se BASE_DIR ek level peeche hai
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'users_app', 'frontend'),
+    os.path.join(BASE_DIR, 'frontend'),
 ]
-
 # NAYA: Whitenoise storage taaki CSS/JS compress hokar chale
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 WHITENOISE_USE_FINDERS = True
