@@ -68,20 +68,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'movie_clone.wsgi.application'
 
-# --- 3. Database (MySQL Configuration) ---
+# --- 3. Database (SQLite Configuration) ---
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'movie_org',
-        'USER': 'root',
-        'PASSWORD': 'mohit0069',
-        'HOST': 'localhost', # PythonAnywhere par ye host badal jayega
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 # --- 4. Password Validation ---
 AUTH_PASSWORD_VALIDATORS = [
