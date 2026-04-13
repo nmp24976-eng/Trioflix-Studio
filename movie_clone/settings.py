@@ -103,11 +103,10 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # NAYA: Live server ke liye files jama karne ki jagah
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'users_app', 'frontend'), 
+    os.path.join(BASE_DIR, 'static'), 
 ]
-
 # NAYA: Whitenoise storage taaki CSS/JS compress hokar chale
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
