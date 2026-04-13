@@ -92,7 +92,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Frontend folder ka path check karein (Agar folder ka naam 'static' hai toh wahi likhein)
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend'), 
+   os.path.join(BASE_DIR, 'users_app', 'frontend'),
 ]
 
 # Whitenoise Storage: Static files ko bina crash ke fast serve karta hai
