@@ -152,8 +152,6 @@
 
                 <!-- media query srchbar ends -->
 
-
-                
             </nav>
 
 
@@ -545,8 +543,6 @@
 
         <!-- sidebar endts -->
 
-       
-
 
         <!-- main section starts -->
         <div class="container-fluid p-0 d-flex flex-column align-items-center w-100 bg-transparent" id="secondContainer">
@@ -624,7 +620,7 @@
         {% for movie in movies %}
         <div class="card bg-transparent border-0 text-start p-0" style="width: 200px;">
             <a href="{% url 'users_app:watch_movie' movie.id %}">
-                <img class="card-img-top rounded-1" src="{% if movie.poster_url %}{{ movie.poster_url }}{% else %}{{ movie.poster_file.url }}{% endif %}" style="height: 280px; object-fit: cover;" />
+                <img class="card-img-top rounded-1" src="{% if movie.poster_url %}{{ movie.poster_url }}{% else %}{{ movie.poster_file.url }}{% endif %}" style="height: 280px; object-fit: cover;" 
             </a>
             <h6 class="text-white mt-2 px-1 fw-bold">{{ movie.title }}</h6>
         </div>
@@ -671,7 +667,6 @@
                 <div class="container my-5">
 
                     <!-- february -->
-
 
                     
                     <div class="container-fluid p-0" id="febCard">
@@ -740,9 +735,6 @@
 
                             
 
-
-
-
                             <div class="card bg-transparent border-0 text-start rounded-0 p-0" id="card">
                                 <img class="img-fluid rounded-0" src="https://dnm.nflximg.net/api/v6/WNk1mr9x_Cd_2itp6pUM7-lXMJg/AAAABdxyWANUgBTVD1Zq6zziueU0zklx1sMfr3DWDO3naucbGexfcM9UYqGB8HYH48ycNlooBlECCTjpB6Y9os2U8dFm7IF838W3NW1Suj0KSujk4v9dItllGQi_gYwGBGNWUT5uEw.jpg?r=cfa" alt="Title" />
                                 <div class="card-body p-0 py-2">
@@ -774,9 +766,6 @@
 
                             
 
-
-
-
                             <div class="card bg-transparent border-0 text-start rounded-0 p-0" id="card">
                                 <img class="img-fluid rounded-0" src="https://dnm.nflximg.net/api/v6/WNk1mr9x_Cd_2itp6pUM7-lXMJg/AAAABY00D16PWECyqTXFkss11JpEAEfRL-oBZqfb7RpkjvqZYnt2zvpNh-_w-EiaemyNw3hR5JDuCR3lf2vq3lnYJN1nviETtzpu_IuWEGMLq2b06Lwky2VdR89GXCtzmIxWp8r81A.jpg?r=c60" alt="Title" />
                                 <div class="card-body p-0 py-2">
@@ -805,9 +794,6 @@
                                 </div>
                             </div>
                             
-
-                            
-
 
 
 
@@ -838,7 +824,6 @@
                                     <p class="card-text cardText text-white fw-light">February 8, 2024</p>
                                 </div>
                             </div>
-
 
                             
 
@@ -877,8 +862,6 @@
 
                                     
 
-
-
                                     <div class="card bg-transparent border-0 text-start rounded-0 p-0" id="card">
                                         <img class="img-fluid rounded-0" src="https://dnm.nflximg.net/api/v6/WNk1mr9x_Cd_2itp6pUM7-lXMJg/AAAABWh7EkI4iPUT-4onBFI2u8vk_Qvkv6DRgNU3Y5CLXJyxoNbsj_udso8CJ6kGyBpgFCf0IZ6RtQKg1v7h3DK_8S2yqA5Xr5KuxRCB4NdqyqXDeORqr1VY0bNqSW3xXNd_yU1Gqg.jpg?r=bdc" alt="Title" />
                                         <div class="card-body p-0 py-2">
@@ -907,8 +890,6 @@
                                         </div>
                                     </div>
                                     
-
-
 
 
                                     <div class="card bg-transparent border-0 text-start rounded-0 p-0" id="card">
@@ -1110,8 +1091,7 @@
           
                         <!---
                         
-                        
-                        
+                    
                         <div class="card bg-transparent border-0 text-start rounded-0 p-0" id="card">
                                 <img class="img-fluid rounded-0" src="https://dnm.nflximg.net/api/v6/WNk1mr9x_Cd_2itp6pUM7-lXMJg/AAAABZHsUO6PVumexy6wYTKwiewuSAaq3nzaGZ5MUxCtiVPsqxpYVqskK1WPxpNIzl-XsX84NzSNqZPb_RpLNSQT3MZi96-6cuNuLus6fxqbKN3gJVZQYaN4h_BmtdLeU4KvTTJOzw.jpg?r=157" alt="Title" />
                                 <div class="card-body p-0 py-2">
@@ -1142,9 +1122,6 @@
                             
 
                             
-
-
-
 
                             <div class="card bg-transparent border-0 text-start rounded-0 p-0" id="card">
                                 <img class="img-fluid rounded-0" src="https://dnm.nflximg.net/api/v6/WNk1mr9x_Cd_2itp6pUM7-lXMJg/AAAABWhFn3E29dt1m4iXq230EPCe5VfR-sv7R5c-VgX1b9XCHUw-x1CB_N4I6fp3ti6aw424VPkKDzgdKEb6Kck0gGRd7VbABD2q8LiUVDm2Rz8F_a7tzCHNmbtTEXk0pQ3IdTy7UA.jpg?r=191" alt="Title" />
@@ -1177,9 +1154,6 @@
 
                             
 
-
-
-
                             <div class="card bg-transparent border-0 text-start rounded-0 p-0" id="card">
                                 <img class="img-fluid rounded-0" src="https://dnm.nflximg.net/api/v6/WNk1mr9x_Cd_2itp6pUM7-lXMJg/AAAABSPLnNQVyNWZHME0TkwkzBdAEjfljNAvRzkw8mfWyJ62d-D8EJQAc7wPzxRwcDXmbv4dkF7J69xLvCrwwaszvsHppjOeff4D74WtYxsljhzVwqJDIvg-mQFgb7DqaaaWUNV78A.jpg?r=4d2" alt="Title" />
                                 <div class="card-body p-0 py-2">
@@ -1210,10 +1184,6 @@
                             
 
                             
-
-
-
-
                             <div class="card bg-transparent border-0 text-start rounded-0 p-0" id="card">
                                 <img class="img-fluid rounded-0" src="https://dnm.nflximg.net/api/v6/WNk1mr9x_Cd_2itp6pUM7-lXMJg/AAAABRvrNUxz3K5teieCvlX9ZGan2XDBZfA2ksHhTuFzM0nlL1SDJ5LlLgfoQE65VtTLf7x-EQNsj4s4Jvdjzikq7f-fLnRjoa0EkU_6F8A_hYdmxGpagXODAiy9O6uW5rorqSgVVQ.jpg?r=e58" alt="Title" />
                                 <div class="card-body p-0 py-2">
@@ -1243,8 +1213,6 @@
                             </div>   
                   -->
 
-
-                            
 
                             <!-- component to show -->
 
@@ -1277,11 +1245,7 @@
                                             <p class="card-text cardText text-white fw-light">March 8, 2024</p>
                                         </div>
                                     </div>
-                                    
-
-                                    
-
-
+                                
 
                                     <div class="card bg-transparent border-0 text-start rounded-0 p-0" id="card">
                                         <img class="img-fluid rounded-0" src="https://dnm.nflximg.net/api/v6/WNk1mr9x_Cd_2itp6pUM7-lXMJg/AAAABWgeu1pKLZZKZX5kTqp7UCX_mm9YgM4ABg9XBwOeo_88jXI2UEfvjJCdAaU-OMrDhtXwTbJlq1Fi2aCI83MXldQmqdIQhYE6Khbcg478-nIFDgebCFoNtxhvn9nuMxJpUnuSPA.jpg?r=822" alt="Title" />
@@ -1313,8 +1277,6 @@
                                     
 
 
-
-
                                     <div class="card bg-transparent border-0 text-start rounded-0 p-0" id="card">
                                         <img class="img-fluid rounded-0" src="https://dnm.nflximg.net/api/v6/WNk1mr9x_Cd_2itp6pUM7-lXMJg/AAAABUMsWEAL2_HN6LNkTlajQHlu1WbFNaFBFNPfSFdEsAbAwZocnyg7NxuJuZUj8i2UMqX8VOAt6pf5IiPh8Hki07bVIczFiNbe8q-WskvoMtuZ2HEdsqVQYqocxlXJbYBSczsQtw.jpg?r=e57" alt="Title" />
                                         <div class="card-body p-0 py-2">
@@ -1343,8 +1305,6 @@
                                         </div>
                                     </div>
                                     
-
-
 
 
                                     <div class="card bg-transparent border-0 text-start rounded-0 p-0" id="card">
@@ -1378,8 +1338,6 @@
             
         </div>
         <!-- main section starts -->
-
-
 
         <!-- latestNews starts -->
 
@@ -1429,8 +1387,6 @@
 
         <!-- latestNews ends -->
 
-
-
         <!-- company assets starts -->
 
         <div class="container-fluid p-0" id="assetsOuter">
@@ -1445,8 +1401,6 @@
         </div>
 
         <!-- company assets ends -->
-
-
 
         <!-- footer starts -->
 
@@ -1493,15 +1447,9 @@
                 </footer>
             </div>
         </div>
-        
-
-        <!-- footer ends -->
-
-
-
 </div>
 
-
+    <!-- footer ends -->
 
 <script>
     // 1. Pehle wala function (Films/Series/Documentary switch ke liye)
@@ -1554,9 +1502,6 @@
             if(navTwo) navTwo.classList.remove("header-scrolled");
         }
     };
-
-
-
        
         // 1. Translation Engine
         function autoTranslate(targetLang) {
@@ -1609,7 +1554,4 @@
         });
     </script>
 </body>
-</html>
-
-</body> 
 </html>
