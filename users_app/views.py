@@ -155,21 +155,29 @@ def watch_movie(request, movie_id):
     movie_data = get_object_or_404(Movie, id=movie_id)
     video_url = ""
 
+    # 1. Check karein ki Admin ne YouTube URL dala hai ya Cloudinary File
     if movie_data.youtube_url:
         video_url = movie_data.youtube_url
     elif movie_data.video_file:
-        video_url = movie_data.video_file.url
+        video_url = movie_data.video_file.url  # .url lagana zaroori hai
 
+    # 2. Agar dono khali hain toh error dikhao
     if not video_url or video_url == "None":
-        messages.error(request, "Video link missing in Admin!")
+        messages.error(request, "Video file or link is not available!")
         return redirect('users_app:media')
 
+    # 3. YouTube link ko Embed format mein badalna (Netflix style player ke liye)
     if "youtube.com/watch?v=" in video_url:
-        video_url = video_url.replace("youtube.com/watch?v=", "youtube-nocookie.com/embed/")
+        video_url = video_url.replace("youtube.com/watch?v=", "www.youtube-nocookie.com/embed/")
     elif "youtu.be/" in video_url:
         video_url = video_url.replace("youtu.be/", "www.youtube-nocookie.com/embed/")
     
+    # URL clean up taaki extra parameters player ko kharab na karein
     if "embed" in video_url:
-        video_url = video_url.split("?")[0] + "?rel=0&modestbranding=1&enablejsapi=1"
+        video_url = video_url.split("&")[0].split("?")[0] + "?rel=0&modestbranding=1&autoplay=1"
 
-    return render(request, 'watch.html', {'movie': movie_data, 'final_url': video_url})
+    # 4. FINAL URL ko context mein bhejna
+    return render(request, 'watch.html', {
+        'movie': movie_data, 
+        'final_url': video_url  # Ye naam watch.html ke {{ final_url }} se match hona chahiye
+    })

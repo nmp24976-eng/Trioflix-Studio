@@ -101,10 +101,10 @@
         
         {% else %}
             <div class="position-relative">
-                <video id="videoPlayer" controls autoplay controlsList="nodownload">
-                    <source src="{{ final_url }}" type="video/mp4">
-                    Aapka browser video support nahi karta.
-                </video>
+                <video id="videoPlayer" controls autoplay controlsList="nodownload" style="width: 100%; max-height: 80vh; background: #000;">
+                <source src="{{ final_url }}" type="video/mp4">
+                <source src="{{ movie.video_file.url }}" type="video/mp4"> Aapka browser video support nahi karta.
+               </video>
             </div>
             <div class="controls-hint mt-2">Shortcuts: Space (Play/Pause) | Arrow Keys (Skip 10s) | 'F' (Fullscreen)</div>
         {% endif %}
