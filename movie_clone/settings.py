@@ -1,18 +1,12 @@
 """
 Trioflix Studio - Final Production Settings
 Cleaned & Optimized by Mohit Singh Negi
-Permanent Database (Postgres) + Cloudinary Storage
+Permanent Database (SQLite on Render Disk) + Cloudinary Storage
 """
 
 import os
 import mimetypes
 from pathlib import Path
-
-# PostgreSQL ke liye smart URL handling library
-try:
-    import dj_database_url
-except ImportError:
-    dj_database_url = None
 
 # --- 1. BASE DIRECTORY SETUP ---
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,23 +74,22 @@ TEMPLATES = [
 WSGI_APPLICATION = 'movie_clone.wsgi.application'
 
 
-# --- 4. DATABASE (Smart Switch: Postgres for Live, SQLite for Local) ---
-# Agar Render par DATABASE_URL variable set hai, toh Postgres chalega
-if dj_database_url and os.environ.get('DATABASE_URL'):
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=os.environ.get('DATABASE_URL'),
-            conn_max_age=600
-        )
-    }
+# --- 4. DATABASE (Render Disk Permanent SQLite Solution) ---
+# Humne Postgres hata kar SQLite ko permanent banaya hai.
+# Agar Render par hain, toh data '/data' folder mein save hoga jo kabhi delete nahi hota.
+if os.environ.get('RENDER'):
+    # Render Dashboard mein 'Disk' ka mount path '/data' hona zaroori hai
+    DB_PATH = os.path.join('/data', 'db.sqlite3')
 else:
-    # Local computer par purana SQLite hi chalta rahega
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+    # Local computer par project folder ke andar hi save hoga
+    DB_PATH = BASE_DIR / 'db.sqlite3'
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': DB_PATH,
     }
+}
 
 
 # --- 5. STATIC & MEDIA FILES (Deployment Ready) ---
@@ -111,9 +104,9 @@ STATICFILES_DIRS = [
 # Whitenoise Storage settings
 STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
 WHITENOISE_USE_FINDERS = True
-WHITENOISE_MANIFEST_STRICT = False # Taaki missing CSS file par crash na ho
+WHITENOISE_MANIFEST_STRICT = False 
 
-# Media files
+# Media files setup
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -136,7 +129,7 @@ cloudinary.config(
     secure = True
 )
 
-# Media files ko default Cloudinary par save karne ke liye
+# Media files (Images/Videos) ko Cloudinary par bhejne ke liye
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
