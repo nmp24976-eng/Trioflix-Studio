@@ -104,6 +104,7 @@ CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'dxphyzpeg',
     'API_KEY': '829991893926926',
     'API_SECRET': '_Q7liYV74wkn8C8cNVrwWZCVPBM',
+    'SECURE': True,
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
