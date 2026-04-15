@@ -75,10 +75,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'MohitTrioflix2026', 
-        'HOST': 'db.cbsprplyznawovoapzuv.supabase.co',
-        'PORT': '5432',
+        'USER': 'postgres.cbsprplyznawovoapzuv',  # Is format mein USER likho
+        'PASSWORD': 'MohitTrioflix2026',
+        'HOST': 'aws-0-ap-south-1.pooler.supabase.com', # Pooler host use karein
+        'PORT': '6543', # Port 6543 kar dein
+        'OPTIONS': {
+            'sslmode': 'require',
+        }
     }
 }
 # --- 5. STATIC & MEDIA FILES ---
