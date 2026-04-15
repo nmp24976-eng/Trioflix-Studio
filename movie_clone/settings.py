@@ -5,8 +5,7 @@ Permanent Database (Supabase PostgreSQL) + Cloudinary Storage
 """
 
 import os
-import mimetypes
-import dj_database_url  # Isse Supabase connect hoga
+import mimetypes 
 from pathlib import Path
 
 # --- 1. BASE DIRECTORY SETUP ---
@@ -71,15 +70,17 @@ WSGI_APPLICATION = 'movie_clone.wsgi.application'
 
 # --- 4. DATABASE (Permanent Supabase Connection) ---
 # Yahan humne SQLite hata kar Supabase (PostgreSQL) setup kar diya hai.
+# --- 4. DATABASE (Manual Supabase Connection) ---
 DATABASES = {
-    'default': dj_database_url.config(
-        # Render ke Environment Variable se link uthayega
-        default='postgresql://postgres:MohitTrioflix2026@db.cbsprplyznawovoapzuv.supabase.co:5432/postgres',
-        conn_max_age=600,
-        ssl_require=True
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'MohitTrioflix2026', 
+        'HOST': 'db.cbsprplyznawovoapzuv.supabase.co',
+        'PORT': '5432',
+    }
 }
-
 # --- 5. STATIC & MEDIA FILES ---
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
