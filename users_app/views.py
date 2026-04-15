@@ -152,32 +152,38 @@ def toggle_watchlist(request, movie_id):
 
 @login_required
 def watch_movie(request, movie_id):
+    # 1. Movie dhoondo, nahi mile toh 404 error
     movie_data = get_object_or_404(Movie, id=movie_id)
     video_url = ""
 
-    # 1. Check karein ki Admin ne YouTube URL dala hai ya Cloudinary File
-    if movie_data.youtube_url:
+    # 2. Check karein (Dhyan dein: aapke model mein jo naam hai wahi likhein)
+    # Agar model mein field 'video_url' hai toh wahi use karein
+    if hasattr(movie_data, 'video_url') and movie_data.video_url:
+        video_url = movie_data.video_url
+    elif hasattr(movie_data, 'youtube_url') and movie_data.youtube_url:
         video_url = movie_data.youtube_url
     elif movie_data.video_file:
-        video_url = movie_data.video_file.url  # .url lagana zaroori hai
+        video_url = movie_data.video_file.url
 
-    # 2. Agar dono khali hain toh error dikhao
-    if not video_url or video_url == "None":
-        messages.error(request, "Video file or link is not available!")
+    # 3. Agar kuch nahi mila toh wapas bhej do aur error dikhao
+    if not video_url:
+        messages.error(request, "Video link available nahi hai!")
         return redirect('users_app:media')
 
-    # 3. YouTube link ko Embed format mein badalna (Netflix style player ke liye)
+    # 4. YouTube Link Conversion Logic (Fixed)
     if "youtube.com/watch?v=" in video_url:
         video_url = video_url.replace("youtube.com/watch?v=", "www.youtube-nocookie.com/embed/")
     elif "youtu.be/" in video_url:
         video_url = video_url.replace("youtu.be/", "www.youtube-nocookie.com/embed/")
-    
-    # URL clean up taaki extra parameters player ko kharab na karein
+
+    # 5. Clean up URL
     if "embed" in video_url:
+        # Extra parameters hatayein taaki clean link mile
         video_url = video_url.split("&")[0].split("?")[0] + "?rel=0&modestbranding=1&autoplay=1"
 
-    # 4. FINAL URL ko context mein bhejna
-    return render(request, 'watch.html', {
+    # 6. Render: Yahan file ka naam check karein (watch.html ya media.html)
+    return render(request, 'media.html', {
         'movie': movie_data, 
-        'final_url': video_url  # Ye naam watch.html ke {{ final_url }} se match hona chahiye
+        'final_url': video_url,
+        'is_watching': True # Template mein handle karne ke liye
     })
