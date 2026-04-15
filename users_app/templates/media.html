@@ -237,11 +237,11 @@
     <div class="row justify-content-center m-0">
         <div class="col-12 col-md-10 col-lg-8 p-0">
             <div class="video-holder shadow-lg" style="position: relative; background: #000; border-radius: 8px; overflow: hidden; margin-top: 50px; border: 1px solid #333;">
-          <video controls preload="auto" width="100%" style="display: block; max-height: 550px;">
-    {% if movie.video_url %}
-        <source src="{{ movie.video_url }}" type="video/mp4">
-    {% elif movie.video_file %}
+          <video controls preload="auto" width="100%" style="display: block; max-height: 550px; background: black;">
+    {% if movie.video_file %}
         <source src="{{ movie.video_file.url }}" type="video/mp4">
+    {% elif movie.video_url %}
+        <source src="{{ movie.video_url }}" type="video/mp4">
     {% endif %}
     Your browser does not support the video tag.
 </video>
