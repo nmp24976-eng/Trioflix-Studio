@@ -68,17 +68,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'movie_clone.wsgi.application'
 
-# --- 4. DATABASE (Permanent Supabase Connection) ---
-# Yahan humne SQLite hata kar Supabase (PostgreSQL) setup kar diya hai.
-# --- 4. DATABASE (Manual Supabase Connection) ---
+## --- 4. DATABASE (Final Supabase Pooler Connection) ---
+# Isme kisi extra library (dj_database_url) ki zaroorat nahi hai.
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
-        'USER': 'postgres.cbsprplyznawovoapzuv',  # Is format mein USER likho
-        'PASSWORD': 'MohitTrioflix2026',
-        'HOST': 'aws-0-ap-south-1.pooler.supabase.com', # Pooler host use karein
-        'PORT': '6543', # Port 6543 kar dein
+        'USER': 'postgres.cbsprplyznawovoapzuv',
+        'PASSWORD': 'MohitTrioflix2026', # Aapka reset kiya hua password
+        'HOST': 'aws-1-ap-southeast-1.pooler.supabase.com', # Aapke screenshot wali host
+        'PORT': '6543', # Aapke screenshot wali port
         'OPTIONS': {
             'sslmode': 'require',
         }
