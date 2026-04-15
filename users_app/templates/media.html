@@ -639,9 +639,12 @@
     <div class="row gap-4 justify-content-start m-0">
         {% for movie in movies %}
         <div class="card bg-transparent border-0 text-start p-0" style="width: 200px;">
-            <a href="{% url 'users_app:watch_movie' movie.id %}">
-                <img class="card-img-top rounded-1" src="{% if movie.poster_url %}{{ movie.poster_url }}{% else %}{{ movie.poster_file.url }}{% endif %}" style="height: 280px; object-fit: cover;" 
-            </a>
+          <a href="{% url 'users_app:watch_movie' movie_id=movie.id %}">
+    <img class="card-img-top rounded-1" 
+         src="{% if movie.poster_url %}{{ movie.poster_url }}{% else %}{{ movie.poster_file.url }}{% endif %}" 
+         style="height: 280px; object-fit: cover;" 
+         alt="{{ movie.title }}" />
+               </a>
             <h6 class="text-white mt-2 px-1 fw-bold">{{ movie.title }}</h6>
         </div>
         {% empty %}
