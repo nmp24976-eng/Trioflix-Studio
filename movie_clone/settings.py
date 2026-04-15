@@ -1,7 +1,7 @@
 """
 Trioflix Studio - Final Production Settings
 Updated by Gemini for Mohit Singh Negi
-Permanent Database (Supabase PostgreSQL) + Cloudinary Storage
+Permanent Database (Supabase PostgreSQL) + Cloudinary Storage + Video Fix
 """
 
 import os
@@ -68,22 +68,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'movie_clone.wsgi.application'
 
-## --- 4. DATABASE (Final Supabase Pooler Connection) ---
-# Isme kisi extra library (dj_database_url) ki zaroorat nahi hai.
-
+# --- 4. DATABASE (Final Supabase Pooler Connection) ---
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres.cbsprplyznawovoapzuv',
-        'PASSWORD': 'MohitTrioflix2026', # Aapka reset kiya hua password
-        'HOST': 'aws-1-ap-southeast-1.pooler.supabase.com', # Aapke screenshot wali host
-        'PORT': '6543', # Aapke screenshot wali port
+        'PASSWORD': 'MohitTrioflix2026', 
+        'HOST': 'aws-1-ap-southeast-1.pooler.supabase.com', 
+        'PORT': '6543', 
         'OPTIONS': {
             'sslmode': 'require',
         }
     }
 }
+
 # --- 5. STATIC & MEDIA FILES ---
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -115,3 +114,12 @@ LOGIN_REDIRECT_URL = 'users_app:media'
 LOGOUT_REDIRECT_URL = 'users_app:login'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# --- 8. VIDEO PLAYER & SECURITY FIX (New) ---
+# Iske bina iframe aur video block ho jate hain
+X_FRAME_OPTIONS = 'ALLOWALL'
+XS_RF_X_FRAME_OPTIONS = 'ALLOWALL'
+
+# HTTPS Security (Render ke liye zaroori)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = False
