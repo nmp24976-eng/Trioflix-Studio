@@ -265,12 +265,12 @@
                     <p style="font-size: 14px;" class="fw-lighter text-center p-0">Select a country.</p>
                     <div class="countSelect rounded-1 m-auto d-flex justify-content-between align-items-center position-relative px-4" onclick="countSelectOpen()">
                         <span><span class="text-white fw-light" id="countrySpan">India</span></span>
-                     <div class="countrySelector position-absolute top-0 start-0 rounded-3" id="countSelectDrop">
-                        </div>
+                        <div class="countrySelector position-absolute top-0 start-0 rounded-3" id="countSelectDrop"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div> 
+    </nav>
 </header> {% if movie and is_watching %}
 <div class="container-fluid p-0 pt-5 mt-5" style="background-color: #000; position: relative; z-index: 1000;">
     <div class="row justify-content-center m-0">
@@ -297,24 +297,6 @@
 {% endif %}
 
 <div class="container-fluid p-0 d-flex flex-column align-items-center w-100 bg-transparent" id="secondContainer">
-    <div id="films_section" class="category-content w-100">
-        {% for cat in all_categories %}
-            <div class="genre-row mt-5" id="cat-{{ cat.id }}">
-                <h4 class="text-white mb-4 px-4 fw-bold">{{ cat.name }}</h4>
-                <div class="row px-4 m-0 justify-content-start flex-nowrap overflow-x-auto" style="gap: 1.2rem;">
-                    {% for m in cat.movies.all %}
-                        <div class="card bg-transparent border-0 text-start p-0 flex-shrink-0" style="width: 200px;">
-                            <a href="{% url 'users_app:watch_movie' movie_id=m.id %}">
-                                <img class="card-img-top rounded-1 shadow-lg" src="{% if m.poster_url %}{{ m.poster_url }}{% else %}{{ m.poster_file.url }}{% endif %}" style="height: 280px; object-fit: cover;" />
-                            </a>
-                            <h6 class="text-white mt-2 px-1 text-truncate">{{ m.title }}</h6>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-</div>
         <!-- english dropdown starts -->
 
         <div class="container-fluid p-0 d-flex flex-column position-absolute" id="englishDropdown">
