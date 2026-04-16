@@ -18,7 +18,7 @@ mimetypes.add_type("video/x-mp4", ".mp4", True)
 SECRET_KEY = 'django-insecure-_ws5f9h!#%a185^k_ojt6@&r2fddfuiqxd8z%skd8r(leol4v-'
 
 # LIVE SERVER PAR FALSE: Render par True rakhne se security risk hota hai
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['trioflix-studio.onrender.com', '.onrender.com', 'localhost', '127.0.0.1']
 
