@@ -277,15 +277,7 @@
             <div class="video-holder shadow-lg" style="position: relative; background: #000; border-radius: 8px; overflow: hidden; border: 1px solid #333;">
                 
                 {% if final_url and "youtube" in final_url or "embed" in final_url %}
-                    <iframe 
-                        width="100%" 
-                        height="500" 
-                        src="{{ final_url }}" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen>
-                    </iframe>
+                    <iframe width="100%" height="500" src="{{ final_url }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 {% elif movie.video_file %}
                     <video controls preload="auto" width="100%" style="display: block; max-height: 550px; background: black;">
                         <source src="{{ movie.video_file.url }}" type="video/mp4">
@@ -307,7 +299,7 @@
 </div>
 {% endif %}
 
-< div class="container-fluid p-0 d-flex flex-column align-items-center w-100 bg-transparent" id="secondContainer">
+<div class="container-fluid p-0 d-flex flex-column align-items-center w-100 bg-transparent" id="secondContainer">
     
 
         <!-- english dropdown starts -->
