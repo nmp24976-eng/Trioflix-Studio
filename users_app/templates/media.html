@@ -255,40 +255,29 @@
 
 
         <!-- country dropdown starts -->
-
-        <div class="container-fluid p-0 d-flex flex-column position-absolute" id="countryDropdown">
+<div class="container-fluid p-0 d-flex flex-column position-absolute" id="countryDropdown">
             <div class="continer fluid p-0" id="countHeader">
                 <h5 class="text-white text-center position-relative fw-semibold">What Country do you cover?
-                <button onclick="closeCountDrop()" class="btn langBtnClose position-absolute end-0 top-0"><svg id=" " xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14" x="0" y="0" viewBox="0 0 329.269 329" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M194.8 164.77 323.013 36.555c8.343-8.34 8.343-21.825 0-30.164-8.34-8.34-21.825-8.34-30.164 0L164.633 134.605 36.422 6.391c-8.344-8.34-21.824-8.34-30.164 0-8.344 8.34-8.344 21.824 0 30.164l128.21 128.215L6.259 292.984c-8.344 8.34-8.344 21.825 0 30.164a21.266 21.266 0 0 0 15.082 6.25c5.46 0 10.922-2.09 15.082-6.25l128.21-128.214 128.216 128.214a21.273 21.273 0 0 0 15.082 6.25c5.46 0 10.922-2.09 15.082-6.25 8.343-8.34 8.343-21.824 0-30.164zm0 0" fill="#ffffff" opacity="1" data-original="#000000" class=""></path></g></svg></button></h5>
+                <button onclick="closeCountDrop()" class="btn langBtnClose position-absolute end-0 top-0"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 329.269 329"><path d="M194.8 164.77 323.013 36.555c8.343-8.34 8.343-21.825 0-30.164-8.34-8.34-21.825-8.34-30.164 0L164.633 134.605 36.422 6.391c-8.344-8.34-21.824-8.34-30.164 0-8.344 8.34-8.344 21.824 0 30.164l128.21 128.215L6.259 292.984c-8.344 8.34-8.344 21.825 0 30.164a21.266 21.266 0 0 0 15.082 6.25c5.46 0 10.922-2.09 15.082-6.25l128.21-128.214 128.216 128.214a21.273 21.273 0 0 0 15.082 6.25c5.46 0 10.922-2.09 15.082-6.25 8.343-8.34 8.343-21.824 0-30.164zm0 0" fill="#ffffff"/></svg></button></h5>
             </div>
             <div class="container-fluid p-0" id="countMain">
                 <div class="container countInner position-relative text-white">
-                    <p style="font-size: 14px;" class="fw-lighter text-center p-0">Select a country to see information specific to your coverage region.</p>
-
-                    <div  class="countSelect rounded-1 m-auto d-flex justify-content-between align-items-center position-relative px-4" onclick="countSelectOpen()">
+                    <p style="font-size: 14px;" class="fw-lighter text-center p-0">Select a country.</p>
+                    <div class="countSelect rounded-1 m-auto d-flex justify-content-between align-items-center position-relative px-4" onclick="countSelectOpen()">
                         <span><span class="text-white fw-light" id="countrySpan">India</span></span>
-                        <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 320 512"><path fill="white" d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg></span>
-
-                   <div class="countrySelector position-absolute top-0 start-0 rounded-3" id="countSelectDrop">
-                             </div>
+                        <div class="countrySelector position-absolute top-0 start-0 rounded-3" id="countSelectDrop"></div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</header>
-
-{% if movie and is_watching %}
-<div class="container-fluid p-0 pt-5 mt-5" style="background-color: #000; position: relative; z-index: 1000;">
+        </div> </nav> </header> {% if movie and is_watching %}
+<div class="container-fluid p-0 pt-5 mt-5" style="background-color: #000; position: relative; z-index: 100;">
     <div class="row justify-content-center m-0">
         <div class="col-12 col-md-10 col-lg-8 p-0">
             <div class="video-holder shadow-lg" style="position: relative; background: #000; border-radius: 8px; overflow: hidden; border: 1px solid #333; margin-top: 60px;">
                 {% if final_url and "youtube" in final_url or "embed" in final_url %}
                     <iframe width="100%" height="500" src="{{ final_url }}" frameborder="0" allowfullscreen></iframe>
                 {% elif movie.video_file %}
-                    <video controls width="100%" style="max-height: 500px;">
-                        <source src="{{ movie.video_file.url }}" type="video/mp4">
-                    </video>
+                    <video controls width="100%" style="max-height: 500px;"><source src="{{ movie.video_file.url }}" type="video/mp4"></video>
                 {% else %}
                     <p class="text-white text-center p-5">Video unavailable.</p>
                 {% endif %}
@@ -303,15 +292,8 @@
 </div>
 {% endif %}
 
-<div class="container-fluid p-0 d-flex flex-column align-items-center w-100 bg-transparent" id="secondContainer">
-    
-    {% if search_mode %}
-    {% endif %}
-
-    <section class="heroSection container-fluid p-0">
-        </section>
-
-    <div id="films_section" class="category-content">
+<div class="container-fluid p-0 d-flex flex-column align-items-center w-100 bg-transparent" id="secondContainer" style="min-height: 100vh;">
+    <div id="films_section" class="category-content w-100">
         {% for cat in all_categories %}
             <div class="genre-row mt-5" id="cat-{{ cat.id }}">
                 <h4 class="text-white mb-4 px-4 fw-bold">{{ cat.name }}</h4>
