@@ -292,19 +292,11 @@
                         Your browser does not support the video tag.
                     </video>
                 {% else %}
-                    <p class="text-white text-center p-5">Video file available nahi hai.</p>
+                    <p class="text-white text-center p-5">Video available nahi hai.</p>
                 {% endif %}
 
             </div>
-            <div class="px-3 py-3 text-center text-white">
-                <h2 class="fw-bold">{{ movie.title }}</h2>
-                <p class="text-secondary">{{ movie.description }}</p>
-            </div>
-        </div>
-    </div>
-</div>
-{% endif %}
-            </div>
+
             <div class="px-3 py-3 text-center text-white">
                 <h2 class="fw-bold">{{ movie.title }}</h2>
                 <p class="text-secondary">{{ movie.description }}</p>
@@ -313,8 +305,7 @@
         </div>
     </div>
 </div>
-{% endif %}
-    <div class="container-fluid p-0 d-flex flex-column align-items-center w-100 bg-transparent" id="secondContainer">
+{% endif %} <div class="container-fluid p-0 d-flex flex-column align-items-center w-100 bg-transparent" id="secondContainer">
         ...
         <!-- english dropdown starts -->
 
